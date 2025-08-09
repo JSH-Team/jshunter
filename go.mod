@@ -1,9 +1,9 @@
 module github.com/JSH-Team/JSHunter
 
-go 1.22
+go 1.23
 
 require (
-	github.com/pocketbase/pocketbase v0.22.21
+	github.com/pocketbase/pocketbase v0.28.3
 	github.com/schollz/progressbar/v3 v3.18.0
 	golang.org/x/net v0.41.0
 )
