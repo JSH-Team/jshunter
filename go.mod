@@ -1,4 +1,4 @@
-module jshunter
+module github.com/JSH-Team/jshunter
 
 go 1.24.3
 

@@ -1,12 +1,12 @@
 package storage
 
 import (
-	"jshunter/internal/config"
-	"jshunter/internal/utils/filesystem"
-	"jshunter/internal/utils/hash"
-	"jshunter/internal/utils/html"
-	"jshunter/internal/utils/logger"
-	urlutils "jshunter/internal/utils/url"
+	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/JSH-Team/JSHunter/internal/utils/filesystem"
+	"github.com/JSH-Team/JSHunter/internal/utils/hash"
+	"github.com/JSH-Team/JSHunter/internal/utils/html"
+	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	urlutils "github.com/JSH-Team/JSHunter/internal/utils/url"
 	"os"
 	"path/filepath"
 )

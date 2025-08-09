@@ -3,8 +3,8 @@ package sourcemap
 import (
 	"os"
 
-	"jshunter/internal/storage"
-	"jshunter/internal/utils/filesystem"
+	"github.com/JSH-Team/JSHunter/internal/storage"
+	"github.com/JSH-Team/JSHunter/internal/utils/filesystem"
 )
 
 // processJob processes a single sourcemap job

@@ -3,7 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"jshunter/internal/config"
+	"github.com/JSH-Team/JSHunter/internal/config"
 	"os"
 	"os/exec"
 )

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"jshunter/internal/storage"
-	"jshunter/internal/utils/logger"
+	"github.com/JSH-Team/JSHunter/internal/storage"
+	"github.com/JSH-Team/JSHunter/internal/utils/logger"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"

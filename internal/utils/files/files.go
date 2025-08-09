@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"jshunter/internal/utils/logger"
+	"github.com/JSH-Team/JSHunter/internal/utils/logger"
 )
 
 // MoveTargetFiles moves all files from source to destination directory

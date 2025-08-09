@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"jshunter/internal/utils/files"
-	"jshunter/internal/utils/logger"
+	"github.com/JSH-Team/JSHunter/internal/utils/files"
+	"github.com/JSH-Team/JSHunter/internal/utils/logger"
 
 	"github.com/spf13/viper"
 	"gopkg.in/yaml.v3"

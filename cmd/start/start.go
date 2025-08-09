@@ -6,8 +6,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"jshunter/internal/config"
-	"jshunter/internal/db"
+	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/JSH-Team/JSHunter/internal/db"
 )
 
 var (

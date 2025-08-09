@@ -2,13 +2,13 @@ package db
 
 import (
 	"fmt"
-	"jshunter/internal/config"
-	"jshunter/internal/utils/logger"
-	"jshunter/internal/workers/analysis"
-	"jshunter/internal/workers/dechunker"
-	"jshunter/internal/workers/extraction"
-	"jshunter/internal/workers/prettify"
-	"jshunter/internal/workers/sourcemap"
+	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/JSH-Team/JSHunter/internal/workers/analysis"
+	"github.com/JSH-Team/JSHunter/internal/workers/dechunker"
+	"github.com/JSH-Team/JSHunter/internal/workers/extraction"
+	"github.com/JSH-Team/JSHunter/internal/workers/prettify"
+	"github.com/JSH-Team/JSHunter/internal/workers/sourcemap"
 	"os"
 	"time"
 
