@@ -1,0 +1,172 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+env:
+  GO_VERSION: '1.21'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ env.GO_VERSION }}
+        
+    - name: Test Backend
+      run: |
+        go mod tidy
+        go test -v ./...
+        
+    - name: Build Backend
+      run: go build -v ./...
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [linux, windows, darwin]
+        arch: [amd64, arm64]
+        exclude:
+          - os: windows
+            arch: arm64
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ env.GO_VERSION }}
+        
+    - name: Generate version
+      id: version
+      run: |
+        # Generate version based on date and commit
+        VERSION="v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)"
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "Generated version: $VERSION"
+        
+    - name: Build Backend
+      env:
+        GOOS: ${{ matrix.os }}
+        GOARCH: ${{ matrix.arch }}
+        CGO_ENABLED: 0
+      run: |
+        mkdir -p dist
+        BINARY_NAME="jshunter"
+        if [ "${{ matrix.os }}" = "windows" ]; then
+          BINARY_NAME="${BINARY_NAME}.exe"
+        fi
+        
+        BUILD_TIME=$(date -u '+%Y-%m-%d_%H:%M:%S_UTC')
+        GIT_COMMIT=$(git rev-parse --short HEAD)
+        
+        go build -ldflags="-s -w -X main.Version=${{ steps.version.outputs.VERSION }} -X main.BuildTime=${BUILD_TIME} -X main.GitCommit=${GIT_COMMIT}" \
+          -o dist/${BINARY_NAME}-${{ matrix.os }}-${{ matrix.arch }} \
+          ./main.go
+          
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: binaries-${{ matrix.os }}-${{ matrix.arch }}
+        path: dist/
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: dist/
+        
+    - name: Flatten artifacts
+      run: |
+        mkdir -p release
+        find dist/ -name "jshunter*" -type f -exec cp {} release/ \;
+        ls -la release/
+        
+    - name: Generate version and tag
+      id: version
+      run: |
+        VERSION="v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)"
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "TAG_NAME=$VERSION" >> $GITHUB_OUTPUT
+        echo "Generated version: $VERSION"
+        
+    - name: Generate changelog
+      id: changelog
+      run: |
+        echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+        echo "## Latest Changes" >> $GITHUB_OUTPUT
+        # Get last 10 commits
+        git log --pretty=format:"- %s (%h)" -10 >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
+    - name: Create checksums
+      working-directory: release
+      run: |
+        for file in jshunter*; do
+          sha256sum "$file" > "$file.sha256"
+        done
+        
+    - name: Delete existing release if exists
+      continue-on-error: true
+      run: |
+        gh release delete ${{ steps.version.outputs.TAG_NAME }} --yes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.TAG_NAME }}
+        name: JSHunter ${{ steps.version.outputs.VERSION }}
+        body: |
+          # JSHunter ${{ steps.version.outputs.VERSION }}
+          
+          **Auto-generated release from latest push to main**
+          
+          ${{ steps.changelog.outputs.CHANGELOG }}
+          
+          ## Installation
+          
+          Download the appropriate binary for your system:
+          
+          ### Linux/macOS
+          ```bash
+          chmod +x jshunter-linux-amd64
+          ./jshunter-linux-amd64 --help
+          ```
+          
+          ### Windows
+          ```cmd
+          jshunter-windows-amd64.exe --help
+          ```
+          
+          ## Checksums
+          
+          All binaries include SHA256 checksums for verification.
+          
+        files: |
+          release/jshunter*
+        draft: false
+        prerelease: false
+        generate_release_notes: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
