@@ -103,7 +103,6 @@ func (p *DechunkerWorkerPool) fetchAndSaveChunks(app *pocketbase.PocketBase, par
 		}
 		// Fetch chunk content with rate limiting
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-
 		content, contentType, success, err := fetcher.RateLimitedGetWithContentType(ctx, absoluteURL)
 		cancel()
 
