@@ -2,9 +2,9 @@ package storage
 
 import (
 	"fmt"
-	"github.com/JSH-Team/JSHunter/internal/config"
-	"github.com/JSH-Team/JSHunter/internal/utils/filesystem"
-	urlutils "github.com/JSH-Team/JSHunter/internal/utils/url"
+	"github.com/jsh-team/jshunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/utils/filesystem"
+	urlutils "github.com/jsh-team/jshunter/internal/utils/url"
 	"path/filepath"
 )
 

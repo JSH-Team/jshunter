@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/JSH-Team/JSHunter/internal/config"
-	"github.com/JSH-Team/JSHunter/internal/utils/filesystem"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/utils/filesystem"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 
 	"github.com/pocketbase/pocketbase"
 )

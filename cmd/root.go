@@ -2,9 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/JSH-Team/JSHunter/cmd/start"
-	"github.com/JSH-Team/JSHunter/cmd/targets"
-	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/jsh-team/jshunter/cmd/start"
+	"github.com/jsh-team/jshunter/cmd/targets"
+	"github.com/jsh-team/jshunter/internal/config"
 
 	"github.com/spf13/cobra"
 )

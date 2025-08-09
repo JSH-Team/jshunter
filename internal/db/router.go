@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/config"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"

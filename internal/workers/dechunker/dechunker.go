@@ -3,10 +3,11 @@ package dechunker
 import (
 	"bufio"
 	"fmt"
-	"github.com/JSH-Team/JSHunter/internal/config"
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/jsh-team/jshunter/internal/config"
 )
 
 // Dechunker wraps the dechunker executable

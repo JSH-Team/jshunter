@@ -5,8 +5,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/JSH-Team/JSHunter/internal/config"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 )
 
 // getPrettierBinaryPath gets the prettifier binary path from configuration

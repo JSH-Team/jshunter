@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 	"net/http"
 	"os"
 	"path/filepath"

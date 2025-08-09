@@ -1,15 +1,15 @@
 package db
 
 import (
-	"github.com/JSH-Team/JSHunter/internal/storage"
-	"github.com/JSH-Team/JSHunter/internal/utils/db"
-	"github.com/JSH-Team/JSHunter/internal/utils/html"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
-	"github.com/JSH-Team/JSHunter/internal/workers/analysis"
-	"github.com/JSH-Team/JSHunter/internal/workers/dechunker"
-	"github.com/JSH-Team/JSHunter/internal/workers/extraction"
-	"github.com/JSH-Team/JSHunter/internal/workers/prettify"
-	"github.com/JSH-Team/JSHunter/internal/workers/sourcemap"
+	"github.com/jsh-team/jshunter/internal/storage"
+	"github.com/jsh-team/jshunter/internal/utils/db"
+	"github.com/jsh-team/jshunter/internal/utils/html"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/workers/analysis"
+	"github.com/jsh-team/jshunter/internal/workers/dechunker"
+	"github.com/jsh-team/jshunter/internal/workers/extraction"
+	"github.com/jsh-team/jshunter/internal/workers/prettify"
+	"github.com/jsh-team/jshunter/internal/workers/sourcemap"
 	"time"
 
 	"github.com/pocketbase/dbx"

@@ -5,9 +5,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/JSH-Team/JSHunter/cmd"
+	"github.com/jsh-team/jshunter/cmd"
 
-	_ "github.com/JSH-Team/JSHunter/internal/db"
+	_ "github.com/jsh-team/jshunter/internal/db"
 
 	m "github.com/pocketbase/pocketbase/migrations"
 

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/JSH-Team/JSHunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/config"
 
 	"github.com/spf13/cobra"
 )

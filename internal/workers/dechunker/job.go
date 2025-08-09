@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/JSH-Team/JSHunter/internal/storage"
-	"github.com/JSH-Team/JSHunter/internal/utils/fetch"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/storage"
+	"github.com/jsh-team/jshunter/internal/utils/fetch"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"

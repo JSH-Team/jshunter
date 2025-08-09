@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/JSH-Team/JSHunter/internal/config"
-	"github.com/JSH-Team/JSHunter/internal/storage"
-	"github.com/JSH-Team/JSHunter/internal/utils/db"
-	"github.com/JSH-Team/JSHunter/internal/utils/hash"
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/config"
+	"github.com/jsh-team/jshunter/internal/storage"
+	"github.com/jsh-team/jshunter/internal/utils/db"
+	"github.com/jsh-team/jshunter/internal/utils/hash"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"

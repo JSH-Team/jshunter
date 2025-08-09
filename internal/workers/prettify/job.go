@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
 )
 
 // processJob processes a single prettify job

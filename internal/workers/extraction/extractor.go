@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/JSH-Team/JSHunter/internal/utils/logger"
-	urlutils "github.com/JSH-Team/JSHunter/internal/utils/url"
+	"github.com/jsh-team/jshunter/internal/utils/logger"
+	urlutils "github.com/jsh-team/jshunter/internal/utils/url"
 
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
